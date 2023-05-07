@@ -1,0 +1,4 @@
+[openai]
+api_key = "sk-XXXXXXXXXXXXX"
+model = "gpt-3.5-turbo"
+max_tokens = 1500
