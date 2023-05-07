@@ -1,5 +1,4 @@
 import openai
-import paginate as pag
 import re
 
 from string import Template

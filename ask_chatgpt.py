@@ -13,7 +13,7 @@ with open("config.toml", "rb") as conf:
 
 api_key = config["openai"]["api_key"]
 model = config["openai"]["model"]
-max_tokens = config["openai"]["api_key"]["max_tokens"]
+max_tokens = config["openai"]["max_tokens"]
 
 chat = ChatGPT(api_key, model, max_tokens = max_tokens)
 
