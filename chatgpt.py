@@ -7,7 +7,7 @@ class ChatGPT:
     def __init__(self, api_key, model_engine, max_tokens = 2048):
         openai.api_key = api_key
         self.model_engine = model_engine
-        self.max_token_length = max_token_length
+        self.max_tokens = max_tokens
         self.messages = []
 
     def _paginate(self, words_list, mtpp):
@@ -44,7 +44,7 @@ class ChatGPT:
 
     def _paginate_input(self, prompt):
         tokens = prompt.split()
-        return self._paginate(tokens, self.max_token_length)
+        return self._paginate(tokens, self.max_tokens)
 
     def _send_prompt(self, prompt):
         self._chat_session('user', prompt)
@@ -52,7 +52,7 @@ class ChatGPT:
         response = openai.ChatCompletion.create(
             model = self.model_engine,
             messages = self.messages,
-            max_tokens = self.max_token_length,
+            max_tokens = self.max_tokens,
             n = 1,
             stop = None,
             temperature = 0.6,
