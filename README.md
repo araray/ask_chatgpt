@@ -1,6 +1,6 @@
 # ask_chatgpt
 
-This small Python project allows you to send chat messages to ChatGPT using OpenAI's API.
+This small Python project allows you to send chat messages to ChatGPT using OpenAI's API from your command line.
 
 ## Requirements
 
