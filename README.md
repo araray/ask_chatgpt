@@ -27,7 +27,8 @@ api_key = "sk-XXXXXXXXXXXXX"
 model = "gpt-3.5-turbo"
 max_tokens = 1500
 ```
- Replace `sk-XXXXXXXXXXXXX` with your actual OpenAI API key.
+Replace `sk-XXXXXXXXXXXXX` with your actual OpenAI API key.
+
 2. Save the file as `config.toml` in the same directory as the main solution.
 The project will now use the values from config.toml for its settings. Make sure not to share your config.toml file or API key with others, as this could lead to unauthorized usage and increased costs.
 
