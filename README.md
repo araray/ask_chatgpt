@@ -1,6 +1,6 @@
 # ask_chatgpt
 
-This small Python project allows you to send chat messages to ChatGPT using OpenAI's API from your command line.
+This small Python project allows you to send chat messages to ChatGPT using OpenAI's API.
 
 ## Requirements
 
@@ -50,13 +50,13 @@ The project will now use the values from config.toml for its settings. Make sure
 #!/bin/bash
     
 dir_base="ADD HERE THE FULL PATH TO THE LOCATION YOU SAVED THIS PROJECT"
-   
 prompt="${1}"
+cd "${dir_base}"
 if [[ -z ${prompt} ]]; then
     prompt="$(cat -)"
 fi
-source ${dir_base}/venv/bin/activate
-python ${dir_base}/ask_chatgpt.py "${prompt}"
+source "${dir_base}/venv/bin/activate"
+python "${dir_base}/ask_chatgpt.py" "${prompt}"
 deactivate
 exit 0
 ```
