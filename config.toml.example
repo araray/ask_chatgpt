@@ -1,4 +1,6 @@
 [openai]
-api_key = "sk-XXXXXXXXXXXXX"
+api_key = "sk-XXXXXXXXXXXXXXXXXXXXXX"
 model = "gpt-3.5-turbo"
 max_tokens = 1500
+temperature = 0.6
+top_p = 1.0
