@@ -1,4 +1,6 @@
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key=api_key)
 import time
 import requests
 import logging
@@ -9,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 
 class ChatGPT:
     def __init__(self, api_key, model_engine, max_tokens = 2048, temperature=0.6, top_p=1.0):
-        openai.api_key = api_key
+        
         self.model_engine = model_engine
         self.max_tokens = max_tokens
         self.temperature = temperature
@@ -45,13 +47,11 @@ class ChatGPT:
         
         for i in range(5):  # Retry up to 5 times
             try:
-                response = openai.ChatCompletion.create(
-                    model=self.model_engine,
-                    messages=[{'role': 'user', 'content': prompt}] + self.messages,
-                    max_tokens=self.max_tokens,
-                    temperature=self.temperature,
-                    top_p=self.top_p
-                )
+                response = client.chat.completions.create(model=self.model_engine,
+                messages=[{'role': 'user', 'content': prompt}] + self.messages,
+                max_tokens=self.max_tokens,
+                temperature=self.temperature,
+                top_p=self.top_p)
                 self.messages.append(response['choices'][0]['message'])
                 return response['choices'][0]['message']['content']
             except requests.exceptions.RequestException as e:
